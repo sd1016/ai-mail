@@ -13,7 +13,10 @@ import (
 
 func Email() (string, error) {
 
-	godotenv.Load()
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatal("Error loading .env file")
+	}
 
 	fmt.Print("> Enter the Subject for the Email : ")
 	reader := bufio.NewReader(os.Stdin)
